@@ -1,0 +1,21 @@
+{
+  "benchmark": "HumanEvalFix",
+  "run_name": "humanevalfixtests-python__codellama-13b-hf-lora-dirty__instruct__20260513T040435Z-955173078",
+  "run_dir": "/workspace/human_eval_fix/bigcode-evaluation-harness/vllm_humanevalfix_runs/_detached/humanevalfixtests-python__codellama-13b-hf-lora-dirty__instruct__20260513T040435Z-955173078",
+  "config_path": "/workspace/Master-Benchmarking-Orchestrator/runtime/slot0-humanevalfix-codellama-13b-hf-lora-dirty.yaml",
+  "model_name": "codellama-13b-hf-lora-dirty",
+  "api_model": "editbench_adapter",
+  "api_base": "http://127.0.0.1:9600/v1",
+  "task": "humanevalfixtests-python",
+  "prompt": "instruct",
+  "status": "generation_complete",
+  "generation_path": "/workspace/human_eval_fix/bigcode-evaluation-harness/vllm_humanevalfix_runs/_detached/humanevalfixtests-python__codellama-13b-hf-lora-dirty__instruct__20260513T040435Z-955173078/humanevalfixtests-python__codellama-13b-hf-lora-dirty__instruct__20260513T040435Z-955173078.generations.jsonl.gz",
+  "error_path": "/workspace/human_eval_fix/bigcode-evaluation-harness/vllm_humanevalfix_runs/_detached/humanevalfixtests-python__codellama-13b-hf-lora-dirty__instruct__20260513T040435Z-955173078/errors.jsonl",
+  "partials_path": "/workspace/human_eval_fix/bigcode-evaluation-harness/vllm_humanevalfix_runs/_detached/humanevalfixtests-python__codellama-13b-hf-lora-dirty__instruct__20260513T040435Z-955173078/partials.jsonl",
+  "attempts": 1,
+  "generation_started_at_utc": "2026-05-13T04:04:35.955275+00:00",
+  "metrics_path": null,
+  "generation_completed_at_utc": "2026-05-13T04:07:49.475593+00:00",
+  "sample_count": 164,
+  "error": null
+}
