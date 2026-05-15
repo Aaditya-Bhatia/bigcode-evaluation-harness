@@ -107,4 +107,16 @@ humanevalfixtests-python__qwen2.5-3b-lora-dirty__instruct__20260514T020246Z-8123
 humanevalfixtests-python__qwen2.5-coder-3b-instruct-lora-dirty__instruct__20260514T020220Z-730212790
 humanevalfixtests-python__qwen3-4b-base-lora-dirty__instruct__20260514T022131Z-338695917
 humanevalfixtests-python__starcoder2-3b-lora-dirty__instruct__20260514T031603Z-649934236
+humanevalfixtests-python__qwen2.5-coder-3b-lora-clean__instruct__20260515T165025Z-406801804
+humanevalfixtests-python__qwen2.5-coder-3b-lora-dirty-ss__instruct__20260515T170924Z-582363474
+humanevalfixtests-python__qwen2.5-coder-3b-lora-unclean-ss__instruct__20260515T172643Z-861755261
+humanevalfixtests-python__qwen2.5-coder-3b-lora-unclean74k__instruct__20260515T170624Z-558234376
 ```
+
+### New ablation runs (2026-05-15)
+
+A fresh ablation sweep using `run_new_ablations_3b.py` produced 4 new
+Qwen2.5-Coder-3B variants (`clean`, `dirty-ss`, `unclean-ss`,
+`unclean74k`). All 4 are included above. A 5th planned variant
+(`qwen2.5-coder-3b-lora-dirty`, non-`-ss`) has no generation dir on the
+GPU pod yet; it may land later.

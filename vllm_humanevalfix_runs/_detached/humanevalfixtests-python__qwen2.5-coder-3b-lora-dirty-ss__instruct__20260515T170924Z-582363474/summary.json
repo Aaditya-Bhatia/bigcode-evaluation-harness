@@ -1,0 +1,21 @@
+{
+  "benchmark": "HumanEvalFix",
+  "run_name": "humanevalfixtests-python__qwen2.5-coder-3b-lora-dirty-ss__instruct__20260515T170924Z-582363474",
+  "run_dir": "/workspace/human_eval_fix/bigcode-evaluation-harness/vllm_humanevalfix_runs/_detached/humanevalfixtests-python__qwen2.5-coder-3b-lora-dirty-ss__instruct__20260515T170924Z-582363474",
+  "config_path": "/workspace/Master-Benchmarking-Orchestrator/runtime/slot1-humanevalfix-qwen2.5-coder-3b-lora-dirty-ss.yaml",
+  "model_name": "qwen2.5-coder-3b-lora-dirty-ss",
+  "api_model": "editbench_adapter",
+  "api_base": "http://127.0.0.1:9650/v1",
+  "task": "humanevalfixtests-python",
+  "prompt": "instruct",
+  "status": "generation_complete",
+  "generation_path": "/workspace/human_eval_fix/bigcode-evaluation-harness/vllm_humanevalfix_runs/_detached/humanevalfixtests-python__qwen2.5-coder-3b-lora-dirty-ss__instruct__20260515T170924Z-582363474/humanevalfixtests-python__qwen2.5-coder-3b-lora-dirty-ss__instruct__20260515T170924Z-582363474.generations.jsonl.gz",
+  "error_path": "/workspace/human_eval_fix/bigcode-evaluation-harness/vllm_humanevalfix_runs/_detached/humanevalfixtests-python__qwen2.5-coder-3b-lora-dirty-ss__instruct__20260515T170924Z-582363474/errors.jsonl",
+  "partials_path": "/workspace/human_eval_fix/bigcode-evaluation-harness/vllm_humanevalfix_runs/_detached/humanevalfixtests-python__qwen2.5-coder-3b-lora-dirty-ss__instruct__20260515T170924Z-582363474/partials.jsonl",
+  "attempts": 1,
+  "generation_started_at_utc": "2026-05-15T17:09:24.582497+00:00",
+  "metrics_path": null,
+  "generation_completed_at_utc": "2026-05-15T17:09:56.065794+00:00",
+  "sample_count": 164,
+  "error": null
+}
