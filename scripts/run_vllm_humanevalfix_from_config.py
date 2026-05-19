@@ -40,17 +40,24 @@ def api_model(config: dict) -> str:
     return str(config.get("served_model_name") or config.get("model_name") or "model")
 
 
-def chat_completion(api_base: str, model: str, prompt: str, config: dict) -> str:
+def text_completion(api_base: str, model: str, prompt: str, config: dict) -> str:
+    # POST /v1/completions (raw text continuation). Do NOT use /v1/chat/completions:
+    # vLLM applies the base model's chat template before tokenization, which wraps
+    # the prompt in ChatML / instruct turn markers. The HumanEvalFix dirty LoRAs are
+    # trained on plain buggy_code -> fixed_code text pairs and never learn to emit
+    # <|im_end|>; they degenerate to prompt-echo + max_tokens of EOS-region noise
+    # (CJK glyphs on Qwen, BPE byte markers on deepseek, scaffolding on codellama).
+    # The bigcode upstream harness has always used /v1/completions for this task.
     payload = {
         "model": model,
-        "messages": [{"role": "user", "content": prompt}],
+        "prompt": prompt,
         "temperature": float(config.get("temperature", 0.2)),
         "top_p": float(config.get("top_p", 0.95)),
         "max_tokens": HUMANEVALFIX_MAX_TOKENS,
     }
     body = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
-        api_base.rstrip("/") + "/chat/completions",
+        api_base.rstrip("/") + "/completions",
         data=body,
         headers={
             "Content-Type": "application/json",
@@ -62,7 +69,7 @@ def chat_completion(api_base: str, model: str, prompt: str, config: dict) -> str
         try:
             with urllib.request.urlopen(req, timeout=300) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
-            return data["choices"][0]["message"]["content"]
+            return data["choices"][0]["text"]
         except (urllib.error.URLError, TimeoutError, KeyError, json.JSONDecodeError):
             if attempt == 3:
                 raise
@@ -221,7 +228,7 @@ def main() -> int:
 
     def run_one(idx: int, sample: dict) -> tuple[int, dict]:
         prompt = prompt_for(sample)
-        content = chat_completion(api_base, model, prompt, config)
+        content = text_completion(api_base, model, prompt, config)
         row = dict(sample)
         row["prompt"] = prompt
         row["raw_generation"] = [content]
